@@ -6,7 +6,7 @@
     NSString* path = [self getParentPath:dotPath];
     NSMutableDictionary* d = [self _dictAtPath:path];
     NSString* key = [self getPathKey:dotPath];
-    id o = [d objectForKey:key];
+    id o = d[key];
     return o;
 }
 
@@ -17,6 +17,21 @@
 
 -(int)intForPath:(NSString*)dotPath {
     int i = [[self objectForPath:dotPath] intValue];
+    return i;
+}
+
+-(NSInteger)integerForPath:(NSString*)dotPath {
+    int i = [[self objectForPath:dotPath] integerValue];
+    return i;
+}
+
+-(NSUInteger)unsignedIntegerForPath:(NSString*)dotPath {
+    int i = [[self objectForPath:dotPath] unsignedIntegerValue];
+    return i;
+}
+
+-(CGFloat)cgFloatForPath:(NSString*)dotPath {
+    int i = [[self objectForPath:dotPath] doubleValue];
     return i;
 }
 
@@ -51,10 +66,10 @@
         NSDictionary* parent = self;
         NSDictionary* d = nil;
         for (NSString* key in chunks) {
-            d = (NSDictionary*)[parent objectForKey:key];
+            d = (NSDictionary*)parent[key];
             if(d == nil) {
                 d = [NSMutableDictionary dictionary];
-                [(NSMutableDictionary*)parent setObject:d forKey:key];
+                ((NSMutableDictionary*)parent)[key] = d;
             }
             parent = d;
         }
@@ -90,26 +105,38 @@
     BOOL isMutable = [d respondsToSelector:@selector(setObject:forKey:)];
     if(!isMutable) {
         d = [NSMutableDictionary dictionaryWithDictionary:d];
-        [self setObject:d forKey:path];
+        self[path] = d;
     }
     NSString* key = [self getPathKey:dotPath];
-    [d setObject:anObject forKey:key];    
+    d[key] = anObject;    
 }
 
 -(void)setBool:(BOOL)i forPath:(NSString*)dotPath {
-    [self setObject:[NSNumber numberWithBool:i] forPath:dotPath];
+    [self setObject:@(i) forPath:dotPath];
 }
 
 -(void)setInt:(int)i forPath:(NSString*)dotPath {
-    [self setObject:[NSNumber numberWithInt:i] forPath:dotPath];
+    [self setObject:@(i) forPath:dotPath];
+}
+
+-(void)setInteger:(int)i forPath:(NSString*)dotPath {
+    [self setObject:@(i) forPath:dotPath];
+}
+
+-(void)setUnsignedInteger:(int)i forPath:(NSString*)dotPath {
+    [self setObject:@(i) forPath:dotPath];
+}
+
+-(void)setCGFloat:(CGFloat)f forPath:(NSString*)dotPath {
+    [self setObject:@(f) forPath:dotPath];
 }
 
 -(void)setChar:(char)c forPath:(NSString*)dotPath {
-    [self setObject:[NSNumber numberWithChar:c] forPath:dotPath];
+    [self setObject:@(c) forPath:dotPath];
 }
 
 -(void)setFloat:(float)i forPath:(NSString*)dotPath {
-    [self setObject:[NSNumber numberWithFloat:i] forPath:dotPath];
+    [self setObject:@(i) forPath:dotPath];
 }
 
 -(void)setPoint:(CGPoint)o forPath:(NSString*)dotPath {

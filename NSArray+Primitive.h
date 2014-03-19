@@ -15,6 +15,9 @@
 -(CGPoint)pointAtIndex:(NSUInteger)index;
 -(CGSize)sizeAtIndex:(NSUInteger)index;
 -(CGRect)rectAtIndex:(NSUInteger)index;
+-(NSInteger)integerAtIndex:(NSUInteger)index;
+-(NSUInteger)unsignedIntegerAtIndex:(NSUInteger)index;
+-(CGFloat)cgFloatAtIndex:(NSUInteger)index;
 
 @end
 
@@ -33,6 +36,18 @@
 -(void)addInt:(int)i;
 -(void)insertInt:(int)i atIndex:(NSUInteger)index;
 -(void)replaceIntAtIndex:(NSUInteger)index withInt:(int)i;
+
+-(void)addInteger:(NSInteger)i;
+-(void)insertInteger:(NSInteger)i atIndex:(NSUInteger)index;
+-(void)replaceIntegerAtIndex:(NSUInteger)index withInteger:(NSInteger)i;
+
+-(void)addUnsignedInteger:(NSInteger)i;
+-(void)insertUnsignedInteger:(NSInteger)i atIndex:(NSUInteger)index;
+-(void)replaceUnsignedIntegerAtIndex:(NSUInteger)index withUnsignedInteger:(NSInteger)i;
+
+-(void)addCGFloat:(CGFloat)f;
+-(void)insertCGFloat:(CGFloat)f atIndex:(NSUInteger)index;
+-(void)replaceCGFloatAtIndex:(NSUInteger)index withCGFloat:(CGFloat)f;
 
 -(void)addFloat:(float)f;
 -(void)insertFloat:(float)f atIndex:(NSUInteger)index;
