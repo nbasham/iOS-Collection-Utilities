@@ -4,6 +4,9 @@
 -(id)objectForPath:(NSString*)dotPath;
 -(BOOL)boolForPath:(NSString*)dotPath;
 -(int)intForPath:(NSString*)dotPath;
+-(NSInteger)integerForPath:(NSString*)dotPath;
+-(NSUInteger)unsignedIntegerForPath:(NSString*)dotPath;
+-(CGFloat)cgFloatForPath:(NSString*)dotPath;
 -(int)charForPath:(NSString*)dotPath;
 -(float)floatForPath:(NSString*)dotPath;
 -(CGPoint)pointForPath:(NSString*)dotPath;
@@ -16,6 +19,9 @@
 -(void)setObject:(id)anObject forPath:(NSString*)dotPath;
 -(void)setBool:(BOOL)i forPath:(NSString*)dotPath;
 -(void)setInt:(int)i forPath:(NSString*)dotPath;
+-(void)setInteger:(NSInteger)i forPath:(NSString*)dotPath;
+-(void)setUnsignedInteger:(NSInteger)i forPath:(NSString*)dotPath;
+-(void)setCGFloat:(CGFloat)f forPath:(NSString*)dotPath;
 -(void)setChar:(char)c forPath:(NSString*)dotPath;
 -(void)setFloat:(float)i forPath:(NSString*)dotPath;
 -(void)setPoint:(CGPoint)o forPath:(NSString*)dotPath ;

@@ -10,7 +10,7 @@
     if(index >= self.count) {
         NSLog(@"index '%d' out of bounds, array size %d.", index, self.count);
     }
-    NSNumber* n = [self objectAtIndex:index];
+    NSNumber* n = self[index];
     return n;
 }
 
@@ -18,7 +18,7 @@
     if(index >= self.count) {
         NSLog(@"index '%d' out of bounds, array size %d.", index, self.count);
     }
-    NSValue* n = [self objectAtIndex:index];
+    NSValue* n = self[index];
     return n;
 }
 
@@ -37,6 +37,24 @@
 -(int)intAtIndex:(NSUInteger)index {
     NSNumber* n = [self _numberAtIndex:index];
     int i = [n intValue];
+    return i;
+}
+
+-(NSInteger)integerAtIndex:(NSUInteger)index {
+    NSNumber* n = [self _numberAtIndex:index];
+    int i = [n integerValue];
+    return i;
+}
+
+-(NSUInteger)unsignedIntegerAtIndex:(NSUInteger)index {
+    NSNumber* n = [self _numberAtIndex:index];
+    int i = [n unsignedIntegerValue];
+    return i;
+}
+
+-(CGFloat)cgFloatAtIndex:(NSUInteger)index {
+    NSNumber* n = [self _numberAtIndex:index];
+    int i = [n doubleValue];
     return i;
 }
 
@@ -76,51 +94,87 @@
 @implementation NSMutableArray(Primitive)
 
 -(void)addBool:(BOOL)b {
-    [self addObject:[NSNumber numberWithBool:b]];
+    [self addObject:@(b)];
 }
 
 -(void)insertBool:(BOOL)b atIndex:(NSUInteger)index {
-    [self insertObject:[NSNumber numberWithBool:b] atIndex:index];
+    [self insertObject:@(b) atIndex:index];
 }
 
 -(void)replaceBoolAtIndex:(NSUInteger)index withBool:(BOOL)b {
-    [self replaceObjectAtIndex:index withObject:[NSNumber numberWithBool:b]];
+    self[index] = @(b);
 }
 
 -(void)addChar:(char)c {
-    [self addObject:[NSNumber numberWithChar:c]];
+    [self addObject:@(c)];
 }
 
 -(void)insertChar:(char)c atIndex:(NSUInteger)index {
-    [self insertObject:[NSNumber numberWithChar:c] atIndex:index];
+    [self insertObject:@(c) atIndex:index];
 }
 
 -(void)replaceCharAtIndex:(NSUInteger)index withChar:(char)c {
-    [self replaceObjectAtIndex:index withObject:[NSNumber numberWithChar:c]];
+    self[index] = @(c);
 }
 
 -(void)addInt:(int)i {
-    [self addObject:[NSNumber numberWithInt:i]];
+    [self addObject:@(i)];
 }
 
 -(void)insertInt:(int)i atIndex:(NSUInteger)index {
-    [self insertObject:[NSNumber numberWithInt:i] atIndex:index];
+    [self insertObject:@(i) atIndex:index];
 }
 
 -(void)replaceIntAtIndex:(NSUInteger)index withInt:(int)i {
-    [self replaceObjectAtIndex:index withObject:[NSNumber numberWithInt:i]];
+    self[index] = @(i);
+}
+
+-(void)addInteger:(NSInteger)i {
+    [self addObject:@(i)];
+}
+
+-(void)insertInteger:(NSInteger)i atIndex:(NSUInteger)index {
+    [self insertObject:@(i) atIndex:index];
+}
+
+-(void)replaceIntegerAtIndex:(NSUInteger)index withInteger:(NSInteger)i {
+    self[index] = @(i);
+}
+
+-(void)addUnsignedInteger:(NSInteger)i {
+    [self addObject:@(i)];
+}
+
+-(void)insertUnsignedInteger:(NSInteger)i atIndex:(NSUInteger)index {
+    [self insertObject:@(i) atIndex:index];
+}
+
+-(void)replaceUnsignedIntegerAtIndex:(NSUInteger)index withUnsignedInteger:(NSInteger)i {
+    self[index] = @(i);
+}
+
+-(void)addCGFloat:(CGFloat)f {
+    [self addObject:@(f)];
+}
+
+-(void)insertCGFloat:(CGFloat)f atIndex:(NSUInteger)index {
+    [self insertObject:@(f) atIndex:index];
+}
+
+-(void)replaceCGFloatAtIndex:(NSUInteger)index withCGFloat:(CGFloat)f {
+    self[index] = @(f);
 }
 
 -(void)addFloat:(float)f {
-    [self addObject:[NSNumber numberWithFloat:f]];
+    [self addObject:@(f)];
 }
 
 -(void)insertFloat:(float)f atIndex:(NSUInteger)index {
-    [self insertObject:[NSNumber numberWithFloat:f] atIndex:index];
+    [self insertObject:@(f) atIndex:index];
 }
 
 -(void)replaceFloatAtIndex:(NSUInteger)index withFloat:(float)f {
-    [self replaceObjectAtIndex:index withObject:[NSNumber numberWithFloat:f]];
+    self[index] = @(f);
 }
 
 -(void)addValue:(NSValue*)o {
@@ -132,7 +186,7 @@
 }
 
 -(void)replaceValueAtIndex:(NSUInteger)index withValue:(NSValue*)o {
-    [self replaceObjectAtIndex:index withObject:o];
+    self[index] = o;
 }
 
 -(void)addPoint:(CGPoint)o {
@@ -144,7 +198,7 @@
 }
 
 -(void)replacePointAtIndex:(NSUInteger)index withPoint:(CGPoint)o {
-    [self replaceObjectAtIndex:index withObject:[NSValue valueWithCGPoint:o]];
+    self[index] = [NSValue valueWithCGPoint:o];
 }
 
 -(void)addSize:(CGSize)o {
@@ -156,7 +210,7 @@
 }
 
 -(void)replaceSizeAtIndex:(NSUInteger)index withSize:(CGSize)o {
-    [self replaceObjectAtIndex:index withObject:[NSValue valueWithCGSize:o]];
+    self[index] = [NSValue valueWithCGSize:o];
 }
 
 -(void)addRect:(CGRect)o {
@@ -168,14 +222,14 @@
 }
 
 -(void)replaceRectAtIndex:(NSUInteger)index withRect:(CGRect)o {
-    [self replaceObjectAtIndex:index withObject:[NSValue valueWithCGRect:o]];
+    self[index] = [NSValue valueWithCGRect:o];
 }
 
 -(void)swapIndex1:(NSUInteger)index1 index2:(NSUInteger)index2 {
-    NSNumber* n1 = [self objectAtIndex:index1];
-    NSNumber* n2 = [self objectAtIndex:index2];
-    [self replaceObjectAtIndex:index1 withObject:n2];
-    [self replaceObjectAtIndex:index2 withObject:n1];
+    NSNumber* n1 = self[index1];
+    NSNumber* n2 = self[index2];
+    self[index1] = n2;
+    self[index2] = n1;
 }
 
 @end
