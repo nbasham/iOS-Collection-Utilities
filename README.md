@@ -1,6 +1,6 @@
 # iOS Collection Utilities
 
-iOS Collection Utilities extend NSArray and NSDictionary functionality via categories. Underlying storage of primitive values `BOOL, char, int, float, CGPoint, CGSize, CGRect` adhere to NSCoding so collections can be serialized.
+iOS Collection Utilities extend NSArray and NSDictionary functionality via categories. Underlying storage of primitive values `BOOL, char, int, float, CGPoint, CGSize, CGRect, NSInteger, NSUInteger, and CGFloat` adhere to NSCoding so collections can be serialized.
 
 * **NSDictionary+DotPath** - create, access and mutate dictionary values using a dot notation e.g. `int age = [dict intForPath:@"person.employee.age"]`.
 * **NSArray+Primitive** - a convenient way to use NSArray with primitive types e.g. `int i = [array intAtIndex:0]`.
