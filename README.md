@@ -96,3 +96,11 @@ NSDictionary+Primitive extends NSDictionary and NSMutableDictionary to provide s
     int i = [dict intForKey:@"int1"]; // i = 1
     NSLog(@"%@", [dict description]); // console shows { int1 = 1; int2 = 2; }
 	
+# Authors
+Norman Basham - [@nbasham](http://github.com/nbasham/)
+
+# Contributors
+Harlan Haskins - [@harlanhaskins](http://github.com/harlanhaskins/)
+
+# License
+iOS-Collection-Utilities is made available under the Apache 2.0 License. A full copy of the license is available in the LICENSE file.
