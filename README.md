@@ -14,7 +14,7 @@ Otherwise, copy the contents of `Classes` into your project.
 
 ## NSDictionary+DotPath
 
-NSDictionary+DotPath extends NSDictionary and NSMutableDictionary to provide support for accessing and mutating nested dictionary values using dot notation. This is very similar to the way a JSON object works. This implementation adds support for <code>BOOL, char, int, float, CGPoint, CGSize, CGRect</code> as well as objects. The following example demonstrates <code>int</code> but all the other types work the same way.
+NSDictionary+DotPath extends NSDictionary and NSMutableDictionary to provide support for accessing and mutating nested dictionary values using dot notation. This is very similar to the way a JSON object works. This implementation adds support for <code>BOOL, char, int, float, CGPoint, CGSize, CGRect, NSInteger, NSUInteger, and CGFloat</code> as well as objects. The following example demonstrates <code>int</code> but all the other types work the same way.
 
 Given nested NSDictionary dict:
 >
@@ -72,7 +72,7 @@ Which yields:
 
 ## NSArray+Primitive
 
-NSArray+Primitive extends NSArray and NSMutableArray to provide support for primitives <code>BOOL, char, int, float, CGPoint, CGSize, CGRect</code>. The following example demonstrates <code>int</code> but all the other types work the same way.
+NSArray+Primitive extends NSArray and NSMutableArray to provide support for primitives <code>BOOL, char, int, float, CGPoint, CGSize, CGRect, NSInteger, NSUInteger, and CGFloat</code>. The following example demonstrates <code>int</code> but all the other types work the same way.
 
 >
     NSMutableArray* array = [NSMutableArray array];
@@ -87,7 +87,7 @@ NSArray+Primitive extends NSArray and NSMutableArray to provide support for prim
 
 ## NSDictionary+Primitive
 
-NSDictionary+Primitive extends NSDictionary and NSMutableDictionary to provide support for primitives <code>BOOL, char, int, float, CGPoint, CGSize, CGRect</code>. The following example demonstrates <code>int</code> but all the other types work the same way.
+NSDictionary+Primitive extends NSDictionary and NSMutableDictionary to provide support for primitives <code>BOOL, char, int, float, CGPoint, CGSize, CGRect, NSInteger, NSUInteger, and CGFloat</code>. The following example demonstrates <code>int</code> but all the other types work the same way.
 
 >
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
