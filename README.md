@@ -1,11 +1,10 @@
 # iOS Collection Utilities
 
-iOS Collection Utilities extend NSArray and NSDictionary functionality via categories. Underlying storage of primitive values <code>BOOL, char, int, float, CGPoint, CGSize, CGRect</code> adhere to NSCoding so collections can be serialized.
-<ul>
-		<li><b>NSDictionary+DotPath</b> - create, access and mutate dictionary values using a dot notation e.g. <code>int age = [dict intForPath:@"person.employee.age"]</code>.</li>
-		<li><b>NSArray+Primitive</b> - a convenient way to use NSArray with primitive types e.g. <code>int i = [array intAtIndex:0]</code>.</li>
-		<li><b>NSDictionary+Primitive</b> - a convenient way to use NSDictionary with primitive types e.g. <code> int i = [dict intForKey:@"int1"];</code>.</li>
-</ul>
+iOS Collection Utilities extend NSArray and NSDictionary functionality via categories. Underlying storage of primitive values `BOOL, char, int, float, CGPoint, CGSize, CGRect` adhere to NSCoding so collections can be serialized.
+
+* **NSDictionary+DotPath** - create, access and mutate dictionary values using a dot notation e.g. `int age = [dict intForPath:@"person.employee.age"]`.
+* **NSArray+Primitive** - a convenient way to use NSArray with primitive types e.g. `int i = [array intAtIndex:0]`.
+* **NSDictionary+Primitive** - a convenient way to use NSDictionary with primitive types e.g. `int i = [dict intForKey:@"int1"];`.
 
 # Installation
 If you're using [CocoaPods](http://cocoapods.org), then simply insert `pod 'iOS-Collection-Utilities'` in your application's `Podfile`.
@@ -14,7 +13,7 @@ Otherwise, copy the contents of `Classes` into your project.
 
 ## NSDictionary+DotPath
 
-NSDictionary+DotPath extends NSDictionary and NSMutableDictionary to provide support for accessing and mutating nested dictionary values using dot notation. This is very similar to the way a JSON object works. This implementation adds support for <code>BOOL, char, int, float, CGPoint, CGSize, CGRect, NSInteger, NSUInteger, and CGFloat</code> as well as objects. The following example demonstrates <code>int</code> but all the other types work the same way.
+NSDictionary+DotPath extends NSDictionary and NSMutableDictionary to provide support for accessing and mutating nested dictionary values using dot notation. This is very similar to the way a JSON object works. This implementation adds support for `BOOL, char, int, float, CGPoint, CGSize, CGRect, NSInteger, NSUInteger, and CGFloat` as well as objects. The following example demonstrates `int` but all the other types work the same way.
 
 Given nested NSDictionary dict:
 >
@@ -72,7 +71,7 @@ Which yields:
 
 ## NSArray+Primitive
 
-NSArray+Primitive extends NSArray and NSMutableArray to provide support for primitives <code>BOOL, char, int, float, CGPoint, CGSize, CGRect, NSInteger, NSUInteger, and CGFloat</code>. The following example demonstrates <code>int</code> but all the other types work the same way.
+NSArray+Primitive extends NSArray and NSMutableArray to provide support for primitives `BOOL, char, int, float, CGPoint, CGSize, CGRect, NSInteger, NSUInteger, and CGFloat`. The following example demonstrates `int` but all the other types work the same way.
 
 >
     NSMutableArray* array = [NSMutableArray array];
@@ -87,7 +86,7 @@ NSArray+Primitive extends NSArray and NSMutableArray to provide support for prim
 
 ## NSDictionary+Primitive
 
-NSDictionary+Primitive extends NSDictionary and NSMutableDictionary to provide support for primitives <code>BOOL, char, int, float, CGPoint, CGSize, CGRect, NSInteger, NSUInteger, and CGFloat</code>. The following example demonstrates <code>int</code> but all the other types work the same way.
+NSDictionary+Primitive extends NSDictionary and NSMutableDictionary to provide support for primitives `BOOL, char, int, float, CGPoint, CGSize, CGRect, NSInteger, NSUInteger, and CGFloat`. The following example demonstrates `int` but all the other types work the same way.
 
 >
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
